@@ -1,73 +1,73 @@
-# -Neurabits---AI-ML-intern-Resume-Parser-Challenge
+# Resume Parser Streamlit App
 
-This project is a Streamlit web application built on top of a custom resume parsing engine.
-It allows users to upload a PDF resume and view the extracted information in a structured JSON format.
+This project is a **Streamlit web application** built on top of a custom resume parsing engine.  
+It allows users to upload a **PDF resume** and view the extracted information in a **structured JSON format**.
 
-Approach
-The user uploads a resume (PDF format) through the Streamlit interface.
+---
 
-The file is temporarily saved and passed into a ResumeParser class.
+## Approach
 
-The parser extracts key fields such as:
+- The user uploads a resume (PDF format) through the Streamlit interface.
+- The file is temporarily saved and passed into a `ResumeParser` class.
+- The parser extracts key fields such as:
+  - Name
+  - Email
+  - Phone Number
+  - LinkedIn Profile
+  - Skills
+  - Education
+  - Work Experience
+  - Certifications
+  - Projects
+- The structured data is displayed as JSON on the web interface.
+- An optional expandable section shows detailed parsing results along with confidence scores.
 
-Name
+---
 
-Email
+## Libraries and Tools Used
 
-Phone Number
+- **Streamlit** – Building the web interface.
+- **PyMuPDF (fitz)** – Extracting text directly from PDFs.
+- **spaCy** – Natural language processing, primarily for named entity recognition.
+- **pytesseract** – Optical character recognition (OCR) for image-based PDFs.
+- **scikit-learn** – Utility functions for text processing and similarity calculations.
+- **NLTK** – Tokenization and stopwords handling.
+- **dateutil** – Parsing and normalizing dates.
+- **Pillow (PIL)** – Image processing from PDF pages.
+- **NumPy and pandas** – General data handling.
+- **logging** – Error logging and process tracking.
 
-LinkedIn Profile
+---
 
-Skills
+## Assumptions and Limitations
 
-Education
+### Assumptions
+- Resumes are written primarily in English.
+- The uploaded document is in **PDF format** only.
+- The resume structure contains standard sections such as Skills, Education, and Experience.
 
-Work Experience
+### Limitations
+- Highly graphical or non-standard resumes may not be parsed accurately even with OCR fallback.
+- Extracted information depends heavily on the formatting and clarity of the document.
+- Confidence scores are heuristic-based and are approximate.
+- Batch processing of multiple resumes simultaneously is not yet supported.
+- Parsing focuses mainly on essential sections; less common sections (e.g., awards, hobbies) are not extracted.
 
-Certifications
+---
 
-Projects
+## How to Run Locally
 
-The structured data is displayed as JSON on the web interface.
+1. Install the required libraries:
 
-An optional expandable section shows detailed parsing results along with confidence scores.
+```bash
+pip install streamlit pymupdf spacy pytesseract scikit-learn nltk python-dateutil Pillow
+python -m spacy download en_core_web_sm
+```
 
-Libraries and Tools Used
-Streamlit – Building the web interface.
+2. Start the Streamlit application:
 
-PyMuPDF (fitz) – Extracting text directly from PDFs.
+```bash
+streamlit run streamlit_app.py
+```
 
-spaCy – Natural language processing, primarily for named entity recognition.
-
-pytesseract – Optical character recognition (OCR) for image-based PDFs.
-
-scikit-learn – Utility functions for text processing and similarity calculations.
-
-NLTK – Tokenization and stopwords handling.
-
-dateutil – Parsing and normalizing dates.
-
-Pillow (PIL) – Image processing from PDF pages.
-
-NumPy and pandas – General data handling.
-
-logging – Error logging and process tracking.
-
-Assumptions and Limitations
-Assumptions
-Resumes are written primarily in English.
-
-The uploaded document is in PDF format only.
-
-The resume structure contains standard sections such as Skills, Education, and Experience.
-
-Limitations
-Highly graphical or non-standard resumes may not be parsed accurately even with OCR fallback.
-
-Extracted information depends heavily on the formatting and clarity of the document.
-
-Confidence scores are heuristic-based and are approximate.
-
-Batch processing of multiple resumes simultaneously is not yet supported.
-
-Parsing focuses mainly on essential sections; less common sections (e.g., awards, hobbies) are not extracted.
+3. Upload a PDF resume and view the extracted JSON data.
