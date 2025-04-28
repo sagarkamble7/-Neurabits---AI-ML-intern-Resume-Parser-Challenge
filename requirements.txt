@@ -1,0 +1,9 @@
+PyMuPDF
+pandas
+spacy
+python-dateutil
+pytesseract
+Pillow
+scikit-learn
+nltk
+numpy
